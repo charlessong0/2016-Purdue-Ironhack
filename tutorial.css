@@ -5,6 +5,17 @@ padding: 0;
 }
 
 #map{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+    width: 450px;
+    height: 400px;
+}
+
+#chart{
+	position: absolute;
+	top:500px;
+	left: 10px;
     width: 450px;
     height: 400px;
 }

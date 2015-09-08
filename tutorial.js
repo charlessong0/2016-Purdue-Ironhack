@@ -1,7 +1,79 @@
+/**
+2015-09-07 by Charles Song
+This is the javascript file for the Google map.
+The position for the map and chart will be changed in the final project. Generally the chart will show up once you click the lable in the map.
+**/
 var map;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
+  	//the la and ln for west lafayette
     center: {lat: 40.4219, lng: -86.9125},
     zoom: 16
   });
 }
+
+//this is the test part for adding maps with tags/listeners, need further development
+/**
+
+var map;
+var elevator;
+var mapInit = {
+    zoom: 15,
+    center: new google.maps.LatLng(40.4219, -86.9125),
+    mapTypeId: 'terrain'
+};
+map = new google.maps.Map($('#map')[0], mapInit);
+var markers = [];
+
+// Add a listener for idle event and call getElevation on a random set of marker in the bound
+google.maps.event.addListener(map, 'idle', function()
+{
+    // Create an ElevationService
+    elevator = new google.maps.ElevationService();
+    $.each(markers, function(key, value)
+    {
+        value.setMap(null);
+    });
+    // getting bounds of current location
+    var boundBox = map.getBounds();
+    var southWest = boundBox.getSouthWest();
+    var northEast = boundBox.getNorthEast();
+    var lngSpan = northEast.lng() - southWest.lng();
+    var latSpan = northEast.lat() - southWest.lat();
+    // adding 20 markers to the map at random locations
+    var locations = [];
+    for (var j = 0; j < 10; j++)
+    {
+        var location = new google.maps.LatLng(
+                southWest.lat() + latSpan * (0.077*j),
+                southWest.lng() + lngSpan * (0.077*j)
+                );
+        locations.push(location);
+    }
+
+    // Create a LocationElevationRequest object using the array's one value
+    var positionalRequest = {
+        'locations': locations
+    };
+
+    elevator.getElevationForLocations(positionalRequest, function(results, status)
+    {
+        if (status === google.maps.ElevationStatus.OK)
+        {
+            $.each(results, function(key, value)
+            {
+
+                    //alert(key);
+                    markers[key] = new google.maps.Marker({
+                        position: value.location,
+                        map: map,
+                        icon: 'http://google-maps-icons.googlecode.com/files/red' + ('0' + key.toString()).slice(-2) + '.png'
+                    });
+                
+            });
+        }
+    });
+});
+
+
+**/

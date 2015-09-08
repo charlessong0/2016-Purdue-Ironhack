@@ -1,24 +1,26 @@
-var w = 500,
-	h = 500;
+/**
+2015-09-07 by Charles Song
+This is the javascript file for the radar chart。 We can define the content of the chart here. We can also defind the numbers by accessing external links and resources such as JSON files.
+Functions for JSON file parsing is on developing(2015-09-07)
+**/
 
-var colorscale = d3.scale.category10();
+//define the basic width and height for the chart (in px)
+var w = 250,
+	h = 250;
 
-//Legend titles
-var LegendOptions = ['Final Scores'];
-
-//Data
+//dtata - scored stores
+//we will use scoring algorithm to get these value in the final project
 var d = [
 		  [
-			
-			{axis:"Photo Video",value:0.4},
-			{axis:"Reading",value:0.03},
-			{axis:"Listen Music",value:0.22},
-			{axis:"Watch TV",value:0.03},
-			{axis:"TV Movies Streaming",value:0.03},
-			{axis:"Listen Radio",value:0.07},
-			{axis:"Sending Money",value:0.18},
+			{axis:"Open hours",value:0.4},
+			{axis:"Availability",value:0.03},
+			{axis:"Freshness",value:0.22},
+			{axis:"Distance",value:0.03},
+			{axis:"Prices",value:0.03},
+			{axis:"Customer ratings",value:0.07},
+			{axis:"Personal preference",value:0.18},
 			{axis:"Other",value:0.07},
-			{axis:"Use less Once week",value:0.08}
+			{axis:"service",value:0.08}
 		  ]
 		];
 
@@ -35,36 +37,43 @@ var mycfg = {
 //Will expect that data is in %'s
 RadarChart.draw("#chart", d, mycfg);
 
-////////////////////////////////////////////
-/////////// Initiate legend ////////////////
-////////////////////////////////////////////
 
+//
+//variables for the title
+//
+
+//initiate the title
 var svg = d3.select('#body')
 	.selectAll('svg')
 	.append('svg')
 	.attr("width", w+300)
 	.attr("height", h)
 
-//Create the title for the legend
+
+//variables for creating colour squares
+var colorscale = d3.scale.category10();
+
+//titles
+var titleOptions = ['Final Scores'];
 var text = svg.append("text")
 	.attr("class", "title")
 	.attr('transform', 'translate(90,0)') 
-	.attr("x", w - 70)
+	.attr("x", w-70)
 	.attr("y", 10)
 	.attr("font-size", "12px")
 	.attr("fill", "#404040")
 	.text("Find your best place to get food!");
 		
-//Initiate Legend	
-var legend = svg.append("g")
-	.attr("class", "legend")
+//Initiate title	
+var title = svg.append("g")
+	.attr("class", "title")
 	.attr("height", 100)
 	.attr("width", 200)
 	.attr('transform', 'translate(90,20)') 
 	;
 	//Create colour squares
-	legend.selectAll('rect')
-	  .data(LegendOptions)
+	title.selectAll('rect')
+	  .data(titleOptions)
 	  .enter()
 	  .append("rect")
 	  .attr("x", w - 65)
@@ -74,13 +83,13 @@ var legend = svg.append("g")
 	  .style("fill", function(d, i){ return colorscale(i);})
 	  ;
 	//Create text next to squares
-	legend.selectAll('text')
-	  .data(LegendOptions)
+	title.selectAll('text')
+	  .data(titleOptions)
 	  .enter()
 	  .append("text")
 	  .attr("x", w - 52)
 	  .attr("y", function(d, i){ return i * 20 + 9;})
-	  .attr("font-size", "11px")
+	  .attr("font-size", "13px")
 	  .attr("fill", "#737373")
 	  .text(function(d) { return d; })
 	  ;	
