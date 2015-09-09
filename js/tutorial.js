@@ -144,7 +144,7 @@ function initMap() {
                             //dtata - scored stores
                             //you will use scoring algorithm to get these value in the final project
                             //here we only use random method to show the process
-                            var w = 250,
+                            var w = 200,
                             h = 250;
                             var array  = [];
                             for (var i = 0; i<9; i++) {
@@ -173,7 +173,7 @@ function initMap() {
                               h: h,
                               maxValue: 0.6,
                               levels: 6,
-                              ExtraWidthX: 300
+                              ExtraWidthX: 200
                             }
 
                             //Call function to draw the Radar chart

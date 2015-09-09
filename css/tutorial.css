@@ -28,5 +28,25 @@ padding: 0;
 }
 
 .menu-line{
-	height: 25%;
+	height: 50px;
+}
+
+#menu-cover {
+	height: 89%;
+	width: 80%;
+	background-color: #edeff1;
+    border-radius: 11px;
+    padding: 24px 23px 20px;
+    font-family: "Lato",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+}
+
+.menu-line{
+	border-radius: 11px;
+    box-shadow: none;
+    color: #34495e;
+    font-family: "Lato",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    line-height: 1.467;
+    padding: 4px 4px;
 }
