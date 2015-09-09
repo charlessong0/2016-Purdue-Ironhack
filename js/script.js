@@ -8,7 +8,7 @@ Functions for JSON file parsing is on developing(2015-09-07)
 //create a new httprequest for this session
 var xmlhttp = new XMLHttpRequest();
 //json format data resource url 
-var url = "https://data.cityofchicago.org/api/views/hu6v-hsqb/rows.json?accessType=DOWNLOAD";
+var url = "http://api.openweathermap.org/data/2.5/weather?q=chicago";
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
@@ -17,7 +17,7 @@ xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         var myArr = xmlhttp.responseText;
         var text = myArr;
-        alert(JSON.parse(text).data[1][1]);
+        alert(JSON.parse(text).coord.lon);
         //document.getElementById("id01").innerHTML = myArr;
     
         //define the basic width and height for the chart (in px)
@@ -110,19 +110,12 @@ xmlhttp.onreadystatechange = function() {
 			  .text(function(d) { return d; })
 			  ;	
 
-
 		// those are functions for calculating scores for each store
-
-
-
-
-
 
 
     }
 
 
-    
 };
 
 //show the request function in the text format

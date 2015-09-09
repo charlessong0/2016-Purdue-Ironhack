@@ -6,16 +6,27 @@ padding: 0;
 
 #map{
 	position: absolute;
-	top: 10px;
-	left: 10px;
-    width: 450px;
-    height: 400px;
+    width: 70%;
+    height: 100%;
 }
 
 #chart{
+}
+
+#side-menu{
 	position: absolute;
-	top:500px;
-	left: 10px;
-    width: 450px;
-    height: 400px;
+	top: 0%;
+	left: 70%;
+	width: 30%;
+	height: 100%;
+}
+
+#menu-cover{
+	position: absolute;
+	top: 3%;
+	left: 3%;
+}
+
+.menu-line{
+	height: 25%;
 }
