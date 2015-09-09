@@ -3,29 +3,16 @@
 This is the javascript file for the Google map.
 The position for the map and chart will be changed in the final project. Generally the chart will show up once you click the lable in the map.
 **/
+
+var elevator;
 var map;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
-  	//the la and ln for west lafayette
     center: {lat: 40.4219, lng: -86.9125},
     zoom: 16
   });
-}
 
-//this is the test part for adding maps with tags/listeners, need further development
-/**
-
-var map;
-var elevator;
-var mapInit = {
-    zoom: 15,
-    center: new google.maps.LatLng(40.4219, -86.9125),
-    mapTypeId: 'terrain'
-};
-map = new google.maps.Map($('#map')[0], mapInit);
-var markers = [];
-
-// Add a listener for idle event and call getElevation on a random set of marker in the bound
+  var markers = [];
 google.maps.event.addListener(map, 'idle', function()
 {
     // Create an ElevationService
@@ -45,8 +32,8 @@ google.maps.event.addListener(map, 'idle', function()
     for (var j = 0; j < 10; j++)
     {
         var location = new google.maps.LatLng(
-                southWest.lat() + latSpan * (0.077*j),
-                southWest.lng() + lngSpan * (0.077*j)
+                southWest.lat() + latSpan * Math.random(),
+                southWest.lng() + lngSpan * Math.random()
                 );
         locations.push(location);
     }
@@ -62,7 +49,6 @@ google.maps.event.addListener(map, 'idle', function()
         {
             $.each(results, function(key, value)
             {
-
                     //alert(key);
                     markers[key] = new google.maps.Marker({
                         position: value.location,
@@ -74,6 +60,13 @@ google.maps.event.addListener(map, 'idle', function()
         }
     });
 });
+}
+
+// Add a listener for idle event and call getElevation on a random set of marker in the bound
 
 
-**/
+
+
+
+
+
