@@ -1,7 +1,6 @@
 /**
 2015-09-07 by Charles Song
 This is the javascript file for the radar chart。 We can define the content of the chart here. We can also defind the numbers by accessing external links and resources such as JSON files.
-Functions for JSON file parsing is on developing(2015-09-07)
 **/
 
 
@@ -17,43 +16,11 @@ xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         var myArr = xmlhttp.responseText;
         var text = myArr;
-        alert(JSON.parse(text).coord.lon);
+        var json = JSON.parse(text);
+        //alert(JSON.parse(text).coord.lon);
         //document.getElementById("id01").innerHTML = myArr;
     
-        //define the basic width and height for the chart (in px)
-		var w = 250,
-		h = 250;
-
-		//dtata - scored stores
-		//we will use scoring algorithm to get these value in the final project
-		var d = [
-				  [
-					{axis:"Open hours",value:0.4},
-					{axis:"Availability",value:0.03},
-					{axis:"Freshness",value:0.22},
-					{axis:"Distance",value:0.03},
-					{axis:"Prices",value:0.03},
-					{axis:"Customer ratings",value:0.07},
-					{axis:"Personal preference",value:0.18},
-					{axis:"Other",value:0.07},
-					{axis:"service",value:0.08}
-				  ]
-				];
-
-		//Options for the Radar chart, other than default
-		var mycfg = {
-		  w: w,
-		  h: h,
-		  maxValue: 0.6,
-		  levels: 6,
-		  ExtraWidthX: 300
-		}
-
-		//Call function to draw the Radar chart
-		//Will expect that data is in %'s
-		RadarChart.draw("#chart", d, mycfg);
-
-
+        document.getElementById("weather").innerHTML = "Today the weather is " + json.weather[0].main + " and HOT!";
 		//
 		//variables for the title
 		//
@@ -114,8 +81,6 @@ xmlhttp.onreadystatechange = function() {
 
 
     }
-
-
 };
 
 //show the request function in the text format
