@@ -4,28 +4,29 @@ This is the javascript file for the Google map.
 The position for the map and chart will be changed in the final project. Generally the chart will show up once you click the lable in the map.
 **/
 
-//variables for map and marks
-var elevator;
-var map;
-// 2-level array for washed markets data
-var washedData = [];
-
-//init the google map in the webpage
+//init the google map in the webpage         
 function initMap() {
-    
+    //variables for map and marks
+    var elevator,
+        map,
+        marker,
+        infowindow,
+        xmlhttp,
+        url = "";
+
     //create the google map
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 41.85081542, lng: -87.69123528},
         zoom: 12
     });
     //create a marker at the centre
-    var marker = new google.maps.Marker({
+    marker = new google.maps.Marker({
         position: {lat: 41.85081542, lng: -87.69123528},
         map: map,
         title: 'Chicago'
     });
 
-    var infowindow = new google.maps.InfoWindow({
+    infowindow = new google.maps.InfoWindow({
                             content: ""
                         });
     google.maps.event.addListener(marker, 'click', function() {
@@ -34,9 +35,9 @@ function initMap() {
                         });
 
     //create a new httprequest for this session
-    var xmlhttp = new XMLHttpRequest();
+    xmlhttp = new XMLHttpRequest();
     //json format data resource url 
-    var url = "https://data.cityofchicago.org/api/views/hu6v-hsqb/rows.json?accessType=DOWNLOAD";
+    url = "https://data.cityofchicago.org/api/views/hu6v-hsqb/rows.json?accessType=DOWNLOAD";
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
 
@@ -44,16 +45,33 @@ function initMap() {
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             //get the text content from the page response
-            var myArr = xmlhttp.responseText;
-            var text = myArr;
+            var myArr,
+                text,
+                json,
+                numberOfMarkets = 0,
+                markers = [],
+                boundBox,
+                southWest,
+                northEast,
+                lngSpan = 0,
+                latSpan = 0,
+                locations = [];
+
+            myArr = xmlhttp.responseText;
+            text = myArr;
             json = JSON.parse(text);
+            
             //alert(json.data[1][1]);
             //document.getElementById("id01").innerHTML = myArr;
             
             //
             //add the information of the markets here 
             //
-            for (var i = 0; i<44; i++) {
+
+            var i = 0,
+                // 2-level array for washed markets data
+                washedData = [];
+            for (i = 0; i<44; i++) {
                 var dataLine = [];
                 //latitude - 0
                 dataLine.push(json.data[i][18]);
@@ -80,10 +98,9 @@ function initMap() {
             };
             //alert(washedData);
             //number of the markets
-            var numberOfMarkets = washedData.length;
+            numberOfMarkets = washedData.length;
 
             //add markers on the map
-            var markers = [];
             google.maps.event.addListener(map, 'idle', function() {
             // Create an ElevationService
             elevator = new google.maps.ElevationService();
@@ -92,16 +109,20 @@ function initMap() {
                 value.setMap(null);
             });
             // getting bounds of current location
-            var boundBox = map.getBounds();
-            var southWest = boundBox.getSouthWest();
-            var northEast = boundBox.getNorthEast();
-            var lngSpan = northEast.lng() - southWest.lng();
-            var latSpan = northEast.lat() - southWest.lat();
+            boundBox = map.getBounds();
+            southWest = boundBox.getSouthWest();
+            northEast = boundBox.getNorthEast();
+            lngSpan = northEast.lng() - southWest.lng();
+            latSpan = northEast.lat() - southWest.lat();
             // adding 20 markers to the map at random locations
-            var locations = [];
+
+            var j = 0,
+                location,
+                positionalRequest,
+                prev_infowindow =false;
             for (var j = 0; j < numberOfMarkets; j++)
             {
-                var location = new google.maps.LatLng(
+                location = new google.maps.LatLng(
                         southWest.lat() + latSpan * Math.random(),
                         southWest.lng() + lngSpan * Math.random()
                         );
@@ -109,16 +130,16 @@ function initMap() {
             }
 
             // Create a LocationElevationRequest object using the array's one value
-            var positionalRequest = {
+
+            positionalRequest= {
                 'locations': locations
             };
-
             elevator.getElevationForLocations(positionalRequest, function(results, status)
             {
                 if (status === google.maps.ElevationStatus.OK)
                 {
                     //if the infowindow is open
-                    var prev_infowindow =false;
+                    prev_infowindow =false;
 
                     $.each(results, function(key, value) {
 
@@ -145,12 +166,16 @@ function initMap() {
                             //you will use scoring algorithm to get these value in the final project
                             //here we only use random method to show the process
                             var w = 200,
-                            h = 250;
-                            var array  = [];
-                            for (var i = 0; i<9; i++) {
+                                h = 250,
+                                array  = [],
+                                i = 0,
+                                d,
+                                mycfg;
+
+                            for (i = 0; i<9; i++) {
                                 array[i] = Math.random();
                             }
-                            var d = [
+                            d = [
                                 [
                                     {axis:"Open hours",value:array[0]},
                                     {axis:"Availability",value:array[1]},
@@ -168,7 +193,7 @@ function initMap() {
                             document.getElementById("comments").innerHTML = "Please find the comments by customers here:";
 
                             //Options for the Radar chart, other than default
-                            var mycfg = {
+                            mycfg = {
                               w: w,
                               h: h,
                               maxValue: 0.6,
@@ -189,7 +214,6 @@ function initMap() {
 
         }
     };
-
 }
 
 //show the request function in the text format
