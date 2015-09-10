@@ -37,7 +37,8 @@ function initMap() {
     //create a new httprequest for this session
     xmlhttp = new XMLHttpRequest();
     //json format data resource url 
-    url = "https://data.cityofchicago.org/api/views/hu6v-hsqb/rows.json?accessType=DOWNLOAD";
+    //url = "https://data.cityofchicago.org/api/views/hu6v-hsqb/rows.json?accessType=DOWNLOAD";
+    url = "https://data.cityofchicago.org/api/views/x5xx-pszi/rows.json?accessType=DOWNLOAD";
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
 
