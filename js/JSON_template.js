@@ -7,7 +7,7 @@ JSON read template
 //create a new httprequest for this session
 var xmlhttp = new XMLHttpRequest();
 //json format data resource url 
-var url = "https://data.cityofchicago.org/api/views/hu6v-hsqb/rows.json?accessType=DOWNLOAD";
+var url = "your api url";
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
