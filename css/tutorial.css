@@ -1,22 +1,28 @@
+/* make the body div cover the whole page */
 html, body { 
 height: 100%; 
 margin: 0; 
 padding: 0; 
 }
 
+/* use "#" for ids and use "." for classes
+usually an id in unique in one html page*/
+
 #map{
+	/* here we use absolute layout to find the position for google map
+	you may want to use relative rather than absolute in your own application */
 	position: absolute;
+    /* cover the 70 percent of the page width*/
     width: 70%;
     height: 100%;
 }
 
-#chart{
-}
-
 #side-menu{
 	position: absolute;
+	/* define the postiion of information panel */
 	top: 0%;
 	left: 70%;
+    /* cover the 30 percent of the page width*/
 	width: 30%;
 	height: 100%;
 }
@@ -34,13 +40,18 @@ padding: 0;
 #menu-cover {
 	height: 89%;
 	width: 80%;
+	/* define the background color of the information panel */
 	background-color: #edeff1;
+	/* set radius for the ellipse frame */
     border-radius: 11px;
+    /* add paddings so there would be some blank spaces around the informaiton panel */
     padding: 24px 23px 20px;
+    /* settings for the font */
     font-family: "Lato",Helvetica,Arial,sans-serif;
     font-size: 15px;
 }
 
+/* there defines every single line in the information panel */
 .menu-line{
 	border-radius: 11px;
     box-shadow: none;
