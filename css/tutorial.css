@@ -1,3 +1,10 @@
+/*
+This is the tutorial project for 2015-fall Purdue Ironhack, which is organized by Reserach Center of Open Digital Innovation(RCODI) at Purdue University. 
+If you want to know more about the Ironhack or about the RCODI, please find our website here: https://www.purdue.edu/opendigital/
+You can checkout the code for this project on github: https://github.com/charlessong0/2015-Purdue-Ironhack
+The demo page of this project is located at: http://test.rcodi.charlessong.me/
+*/
+
 /* make the body div cover the whole page */
 html, body { 
 height: 100%; 
