@@ -41,7 +41,7 @@ function initMap() {
     //create a new httprequest for this session
     xmlhttp = new XMLHttpRequest();
     //json format data resource url 
-    //url = "https://data.cityofchicago.org/api/views/hu6v-hsqb/rows.json?accessType=DOWNLOAD";
+    //url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D'http%3A%2F%2Fw1.weather.gov%2Fobhistory%2FKLAF.html'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
     url = "https://data.cityofchicago.org/api/views/x5xx-pszi/rows.json?accessType=DOWNLOAD";
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
@@ -64,7 +64,10 @@ function initMap() {
 
             myArr = xmlhttp.responseText;
             text = myArr;
+            //alert(text);
             json = JSON.parse(text);
+            
+
             
             //alert(json.data[1][1]);
             //document.getElementById("id01").innerHTML = myArr;

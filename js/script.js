@@ -11,8 +11,9 @@ var xmlhttp,
 	url;
 //create a new httprequest for this session
 xmlhttp = new XMLHttpRequest();
-//json format data resource url 
-url = "http://api.openweathermap.org/data/2.5/weather?q=chicago";
+//json format data resource url
+url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D'http%3A%2F%2Fw1.weather.gov%2Fobhistory%2FKLAF.html'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"; 
+//url = "http://api.openweathermap.org/data/2.5/weather?q=chicago";
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
@@ -36,7 +37,8 @@ xmlhttp.onreadystatechange = function() {
         //alert(JSON.parse(text).coord.lon);
         //document.getElementById("id01").innerHTML = myArr;
     
-        document.getElementById("weather").innerHTML = "Today the weather is " + json.weather[0].main + " and HOT!";
+        //document.getElementById("weather").innerHTML = "Today the weather is " + json.weather[0].main + " and HOT!";
+        document.getElementById("weather").innerHTML = "Today the weather is " + json.query.results.body.table[3].tbody.tr[3].td[4].content;
 		//
 		//variables for the title
 		//
