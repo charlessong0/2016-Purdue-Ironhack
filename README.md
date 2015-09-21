@@ -27,7 +27,7 @@ By cloning this project and open the index.html file in your browser, start your
 
 ##Development Process##
 
-**1. Explore the datasets that I am enforced to use **
+**1. Explore the datasets that I am enforced to use**
 
 Spend some time exploring what is the structure and how the datasets are organized in order to know the limits of the datasets.
 
@@ -124,9 +124,9 @@ We can find from the API description that this API will response in JSON. As som
 var json = JSON.parse(text);
 ```
 After we get the original json data, we may need to wash them for further usage. In this tutorial case, we just use them in hard code:
-
+```javascript
     document.getElementById("weather").innerHTML = "Today the weather is " + json.weather[0].main + " ";
-
+```
 The second step we needed was to show the raw data from the location of each farm market
 
 This would be the same as the first step. For this project, we find our data from [http://catalog.data.gov/dataset/farmers-markets-2015](http://catalog.data.gov/dataset/farmers-markets-2015), request for it and wash it.
@@ -136,7 +136,7 @@ This would be the same as the first step. For this project, we find our data fro
 The third step we needed was to show the raw data from the fake rating
 
 After we get the markets data washed, we can develop some functions to analyze it and get scores for rating. In the tutorial case, we use Math.random method to fake rating scores. You should develop your own algorithm in this part:
-```
+```javascript
 for (i = 0; i<9; i++) {
     array[i] = Math.random();
 }
@@ -162,7 +162,7 @@ Start implementing each piece of the solution that requires an external library 
 Using the raw data from location, we personalize the google api to show the farmer markets  in the area (Google Map API)
 
 As for the google map api, we should create map, marker, infoWindow as objects:
-```
+```javascript
 map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 41.85081542, lng: -87.69123528},
     zoom: 12
@@ -183,7 +183,7 @@ google.maps.event.addListener(marker, 'click', function() {
                     });
 ```
 Then we can add location data of different markets on the map:
-```
+```javascript
 $.each(results, function(key, value) {
 
     //alert(key);
@@ -201,7 +201,7 @@ $.each(results, function(key, value) {
 Using the raw data from each farm market we displayed in the radar chart (D3js)
 
 As we fake the scores based on the market data, we could call function, which is developed based on D3js, to draw the radar chart at the front end.
-```
+```javascript
 mycfg = {
   w: w,
   h: h,
@@ -221,7 +221,7 @@ Once all the items from your solution are running, the next step is integrate th
 Once we had both items in place we add the logic to link them.
 
 Add a listener for each mark on the map. When one is clicked, the javascript will track the click, get the id of that mark and reset the information panel using that id:
-```
+```javascript
 google.maps.event.addListener(markers[key], 'click', function() {
     document.getElementById("market-name").innerHTML = washedData[key][2];
     document.getElementById("street-name").innerHTML = washedData[key][3];
