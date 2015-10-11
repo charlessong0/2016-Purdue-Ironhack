@@ -1,4 +1,4 @@
-# 2015 Purdue Ironhack
+# 2015 Purdue Red Ironhack
 ## Introduction
 This is a tutorial project for 2015 Purdue Ironhack
 You may check it out as a reference for your own project. The Demo site for the project is here:
