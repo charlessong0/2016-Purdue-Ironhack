@@ -1,6 +1,6 @@
-# 2015 Purdue Ironhack
+# 2016 Purdue Ironhack
 ## Introduction
-This is a tutorial project for 2015 Purdue Ironhack
+This is a tutorial project for 2016 Purdue Ironhack. Please notice that the example topic here is not the same as the one given to you!
 You may check it out as a reference for your own project. The Demo site for the project is here:
 [http://test.rcodi.charlessong.me/](http://test.rcodi.charlessong.me/)
 
