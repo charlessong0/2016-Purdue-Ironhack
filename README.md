@@ -8,7 +8,7 @@ You may check it out as a reference for your own project. The Demo site for the 
 For more about Open Innovation and our Research Center of Open Digital Innovation at Purdue University:
 [https://www.purdue.edu/opendigital/](https://www.purdue.edu/opendigital/)
 
-By cloning this project and open the index.html file in your browser, start your journey in 2015 Purdue Ironhack right now! 
+By cloning this project and open the index.html file in your browser, start your journey in 2016 Purdue Ironhack right now! 
 
 ## Problem Statement
 - **problem:** Individuals at Chicago are busy; professors, students, workers, advisors etc. and often making a good healthy meal and fast, while finding the different parts for that meal can be tricky. Make it simpler for people to make informed and healthy choices or to get the best food anywhere based on type.
