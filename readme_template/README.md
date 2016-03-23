@@ -14,9 +14,9 @@ You should include at least 3 keywords for your project to identify the features
 
 4. Brief Description
 
-*Use a paragraph to introduce your project.
+ * Use a paragraph to introduce your project.
 
-*Fill in the structued description:
+ * Fill in the structued description:
 Map View:
 	1. [Y/N] Basic Map with specific location (your map is located in a meaningful place, city of west lafayette for example)
 	2. [Y/N] Markers for location of markets
@@ -24,11 +24,11 @@ Map View:
 	4. [Y/N] InfoWindow to show detail information of a market
 	5. [Y/N] [describe] Any other cover on the map (for example, cloud cover to show the weather effect)
 
-*Data Visualization:
+ * Data Visualization:
 	1. [Y/N] [describe] Use Graph? What is the type? (bar chart, pie chart, radar chart ...)
 	2. [Y/N] [List] Any interaction available on the graph? List them (enable click on numbers, drag on lines, change time/variables ...)
 	3. 
-*Interaction Form:
+ * Interaction Form:
 	1. [Y/N] [List] Any information output? list them. (text field, text area, label, plain HTML ...)
 	2. [Y/N] [List] Any operation option (filters)? List them. (search markets, search vegetables, filter based on price, sort based on convenience ...)
 	3. [Y/N] [List] Any information input? List them. (comments, markers, user preference ...)
