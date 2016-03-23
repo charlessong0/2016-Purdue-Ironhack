@@ -13,7 +13,9 @@ You should include at least 3 keywords for your project to identify the features
 [Y/N] [List] Are all these datasets from data.gov? If not, where are they coming from (links)?
 
 4. Brief Description
+
 *Use a paragraph to introduce your project.
+
 *Fill in the structued description:
 Map View:
 	1. [Y/N] Basic Map with specific location (your map is located in a meaningful place, city of west lafayette for example)
@@ -21,9 +23,11 @@ Map View:
 	3. [Y/N] Labels for markets' names
 	4. [Y/N] InfoWindow to show detail information of a market
 	5. [Y/N] [describe] Any other cover on the map (for example, cloud cover to show the weather effect)
+
 *Data Visualization:
 	1. [Y/N] [describe] Use Graph? What is the type? (bar chart, pie chart, radar chart ...)
 	2. [Y/N] [List] Any interaction available on the graph? List them (enable click on numbers, drag on lines, change time/variables ...)
+	3. 
 *Interaction Form:
 	1. [Y/N] [List] Any information output? list them. (text field, text area, label, plain HTML ...)
 	2. [Y/N] [List] Any operation option (filters)? List them. (search markets, search vegetables, filter based on price, sort based on convenience ...)
